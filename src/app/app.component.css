@@ -1,4 +1,58 @@
-p {
-  font-family: Lato;
+* {
+    margin: 0;
+    padding: 0;
 }
 
+h3 {
+    font-size: 4em;
+
+    -webkit-animation: tracking-in-contract 0.8s
+        cubic-bezier(0.215, 0.61, 0.355, 1) both;
+    animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.61, 0.355, 1)
+        both;
+
+    font-family: Lato;
+    text-align: center;
+    margin-bottom: 2%;
+    font-weight: bold;
+
+    filter: drop-shadow(5px 5px 10px #1100ff83);
+}
+
+.container {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(219, 219, 219, 1) 30%,
+        rgba(171, 240, 255, 0.3757878151260504) 60%,
+        rgba(184, 243, 255, 1) 100%
+    );
+}
+
+@-webkit-keyframes tracking-in-contract {
+    0% {
+        letter-spacing: 1em;
+        opacity: 0;
+    }
+    40% {
+        opacity: 0.6;
+    }
+    100% {
+        letter-spacing: normal;
+        opacity: 1;
+    }
+}
+@keyframes tracking-in-contract {
+    0% {
+        letter-spacing: 1em;
+        opacity: 0;
+    }
+    40% {
+        opacity: 0.6;
+    }
+    100% {
+        letter-spacing: normal;
+        opacity: 1;
+    }
+}
