@@ -1,24 +1,32 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, Input } from '@angular/core';
+import { ICard } from 'src/app/fake-api.service';
 
 @Component({
-  selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.css']
+    selector: 'app-card',
+    templateUrl: './card.component.html',
+    styleUrls: [ './card.component.css' ]
 })
-export class CardComponent implements OnInit {
+export class CardComponent
+{
+    @Input()
+    public card: ICard;
 
-  @Input() card;
-  constructor() { }
+    constructor(private http: HttpClient)
+    { }
 
-  ngOnInit() {
-  }
+    public onLike(card: ICard): void
+    {
+        card.likes = card.likes + 1;
+        const updateLike: ICard = { ...card };
 
-  onLike(card: any){
-    // TODO: incrementar o like, salvar via rest
-  }
+        this.http.put(`/api/skills/${card.id}`, updateLike).subscribe(
+            error => { console.log(error) }
+        );
+    }
 
-  onShare(card: any){
-    // TODO: abrir o link do seu linkedin
-  }
-
+    public onShare(): void
+    {
+        window.open('https://www.linkedin.com/in/paulo-cesar-537396139/');
+    }
 }

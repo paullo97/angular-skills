@@ -1,3 +1,40 @@
 .example-card {
-    max-width: 400px;
-  }
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 380px;
+    height: 90%;
+    filter: drop-shadow(5px 5px 10px #666);
+    margin: 10px;
+    transition: 0.5s ease;
+}
+
+.example-card:hover
+{
+    transform: scale(1.05);
+}
+
+.mat-card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mat-card-actions button {
+    width: 48%;
+}
+
+.mat-card-content {
+    max-height: 200px;
+    overflow: auto;
+}
+
+.blue {
+    background-color: blue;
+    color: white;
+}
+
+.moreThatTen {
+    background-color: blueviolet;
+    color: white;
+}
